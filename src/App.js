@@ -2,6 +2,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
 import Products from "./pages/app/product/Products";
+import { useLayoutEffect } from "react";
 
 function App() {
   const router = createBrowserRouter([
@@ -14,6 +15,13 @@ function App() {
       ],
     },
   ]);
+  const path = process.env.REACT_APP_DB_URL;
+  console.log(path);
+  useLayoutEffect(() => {
+    fetch(path).then((res) => {
+      console.log(res.json());
+    });
+  }, []);
 
   return (
     <div className="App">
