@@ -18,9 +18,11 @@ function App() {
   const path = process.env.REACT_APP_DB_URL;
   console.log(path);
   useLayoutEffect(() => {
-    fetch(path).then((res) => {
-      console.log(res.json());
-    });
+    fetch(path)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   }, []);
 
   return (
