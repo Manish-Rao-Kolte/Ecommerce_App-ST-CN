@@ -1,0 +1,68 @@
+
+*{
+    font-family: "poppins", sans-serif;
+}
+
+.navbar{
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1vmax;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+
+    .navlinkContainer{
+        width: 35%;
+        display: flex;
+        justify-content: space-evenly;
+        margin-left: 3%;
+
+        .logoImg{
+            height: 1.5vmax;
+            width: 1.5vmax;
+            rotate: 8deg;
+        }
+
+        .plusImg{
+            height: 1vmax;
+            width: 1vmax;
+            margin-left: 0.5vmax;
+            border-radius: 7px;
+        }
+    }
+
+    .cartContainer{
+        width: 15%;
+        display: flex;
+        justify-content: space-between;
+        margin-right: 2%;
+        align-items: center;
+
+        .profileContainer{
+            width: 70%;
+            display: flex;
+
+            .profileImg{
+                width: 2.5vmax;
+                height: 2.5vmax;
+                margin-left: 0.4vmax;
+            }
+        }
+    }
+
+    .imgContainer{
+        display: flex;
+        align-items: center;
+        margin-top: -0.1vmax;
+    }
+
+    .navlink{
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        color: black;
+    }
+    
+}
