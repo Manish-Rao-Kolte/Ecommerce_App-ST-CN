@@ -1,0 +1,11 @@
+
+.productsContainer{
+    /* height: 82vh; */
+    margin: auto;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5vmax;
+
+}

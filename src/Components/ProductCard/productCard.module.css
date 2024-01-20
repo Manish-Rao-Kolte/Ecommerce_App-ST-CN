@@ -1,0 +1,73 @@
+
+.cardContainer{
+    width: 55vw;
+    height: 17vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 1% 0%;
+    background-color: white;
+    font-size: 0.95vmax;
+
+    .firstSection{
+        width: 35%;
+        display: flex;
+        justify-content: flex-start;
+        gap: 1%;
+
+        img{
+            width: 50%;
+            height: 100%;
+        }
+
+        .priceRatingWrapper{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            text-align: left;
+            padding: 2% 0% 5% 0%;
+
+            .titlePriceWrapper{
+                height: 35%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+
+                .title{
+                    font-size: 1.2vmax;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    .secondSection{
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-right: 2%;
+        
+
+        .description{
+            height: 60%;
+            width: 100%;
+            text-align: left;
+            overflow: hidden;
+        }
+
+
+        .btnWrapper{
+            width: 10%;
+            display: flex;
+            align-self: flex-end;
+            justify-content: space-between;
+            margin-right: 2%;
+
+            img{
+                height: 1.4vmax;
+                width: 1.4vmax;
+            }
+        }
+    }
+}

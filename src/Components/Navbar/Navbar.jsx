@@ -15,7 +15,7 @@ const Navbar = () => {
                 alt="logo"
               />
             </div>
-            <i style={{ color: "rgb(103, 158, 78)" }}>-commerce</i>
+            <i style={{ color: "rgb(89, 137, 67)" }}>-commerce</i>
           </NavLink>
           <NavLink className={styles.navlink}> Products</NavLink>
           <NavLink className={styles.navlink}>
