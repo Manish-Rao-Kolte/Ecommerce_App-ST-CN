@@ -15,12 +15,13 @@ const Products = () => {
 
   useLayoutEffect(() => {
     dispatch(getProductsAsync(path));
-  }, []);
+    console.log(products);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className={styles.productsContainer}>
       {products.map((product) => {
-        return <ProductCard product={product} />;
+        return <ProductCard product={product} id={product.id} />;
       })}
     </div>
   );

@@ -1,17 +1,25 @@
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
 .cardContainer{
-    width: 55vw;
-    height: 17vh;
+    width: 60vw;
+    height: 18vh;
     display: flex;
     justify-content: space-between;
     padding: 1% 0%;
     background-color: white;
     font-size: 0.95vmax;
+    gap: 5%;
 
     .firstSection{
         width: 35%;
         display: flex;
-        justify-content: flex-start;
         gap: 1%;
 
         img{
@@ -28,15 +36,42 @@
             padding: 2% 0% 5% 0%;
 
             .titlePriceWrapper{
-                height: 35%;
+                height: 50%;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-around;
+                gap: 8%;
 
                 .title{
+                    width: 10vw;
                     font-size: 1.2vmax;
                     font-weight: bold;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
                 }
+
+                input{
+                    text-align: center;
+                }
+
+                .titleInput{
+                    width: 5.5vw;
+                    font-weight: bold;
+                    font-size: 1.2vmax;
+                }
+
+                .priceInput{
+                    width: 3vw;
+                    font-size: 0.95vmax;
+                    overflow: hidden;
+                }
+            }
+
+            .ratingInput{
+                width: 1vw;
+                text-align: center;
+                font-size: 0.8vmax;
             }
         }
     }
@@ -49,15 +84,22 @@
         margin-right: 2%;
         
 
-        .description{
+        .description, textarea{
             height: 60%;
             width: 100%;
             text-align: left;
             overflow: hidden;
+            margin-bottom: 1%;
+            font-size: 0.95vmax;
         }
 
+        textarea{
+            resize: none;
+            padding: 1% 0.5%;
+            overflow: hidden;
+        }
 
-        .btnWrapper{
+        .imgBtnWrapper{
             width: 10%;
             display: flex;
             align-self: flex-end;
@@ -67,6 +109,22 @@
             img{
                 height: 1.4vmax;
                 width: 1.4vmax;
+            }
+
+            img:hover{
+                cursor: pointer;
+                scale: 1.1;
+            }
+        }
+
+        .btnWrapper{
+            width: 24%;
+            display: flex;
+            align-self: flex-end;
+            justify-content: space-between;
+
+            button:hover{
+                cursor: pointer;
             }
         }
     }

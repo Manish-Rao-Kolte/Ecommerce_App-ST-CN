@@ -17,8 +17,11 @@ const Navbar = () => {
             </div>
             <i style={{ color: "rgb(89, 137, 67)" }}>-commerce</i>
           </NavLink>
-          <NavLink className={styles.navlink}> Products</NavLink>
-          <NavLink className={styles.navlink}>
+          <NavLink className={styles.navlink} to="/">
+            {" "}
+            Products
+          </NavLink>
+          <NavLink className={styles.navlink} to="/add">
             {" "}
             Add a Products
             <div className={styles.imgContainer}>
