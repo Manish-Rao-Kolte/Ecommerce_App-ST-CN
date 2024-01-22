@@ -31,7 +31,11 @@
             flex-direction: column;
             justify-content: space-evenly;
             align-items: flex-start;
+<<<<<<< HEAD
             text-align: start;
+=======
+            text-align: left;
+>>>>>>> parent of c6aa3fe (Correct UI.)
             gap: 20%;
 
             .titlePriceWrapper{
