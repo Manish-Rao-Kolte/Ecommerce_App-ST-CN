@@ -1,8 +1,12 @@
 import React from "react";
 import styles from "./Navbar.module.css";
 import { NavLink, Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { cartSelector } from "../../redux/slices/cartSlice";
 
 const Navbar = () => {
+  const { cart } = useSelector(cartSelector);
+
   return (
     <>
       <div className={styles.navbar}>
@@ -34,7 +38,10 @@ const Navbar = () => {
           </NavLink>
         </div>
         <div className={styles.cartContainer}>
-          <NavLink className={styles.navlink}>Cart</NavLink>
+          <NavLink className={styles.navlink} to="/cart">
+            Cart
+            <div className={styles.cartCount}>{cart?.length}</div>
+          </NavLink>
           <div className={styles.profileContainer}>
             <p>John Doe</p>
             <div className={styles.imgContainer}>

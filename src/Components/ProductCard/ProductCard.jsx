@@ -7,6 +7,7 @@ import {
   modifyProductAsync,
   removeProductAsync,
 } from "../../redux/slices/productSlice";
+import { addProductToCartAsync } from "../../redux/slices/cartSlice";
 
 const ProductCard = (props) => {
   const { product } = props;
@@ -35,6 +36,10 @@ const ProductCard = (props) => {
 
   const deleteProduct = () => {
     dispatch(removeProductAsync(product));
+  };
+
+  const addToCart = () => {
+    dispatch(addProductToCartAsync(product));
   };
 
   return (
@@ -145,7 +150,11 @@ const ProductCard = (props) => {
             </>
           ) : (
             <>
-              <button>Add to Cart</button>
+              <img
+                src="https://cdn-icons-png.flaticon.com/128/8866/8866177.png"
+                alt="add to cart"
+                onClick={() => addToCart()}
+              />
               <img
                 src="https://cdn-icons-png.flaticon.com/128/11149/11149783.png"
                 alt="edit"
