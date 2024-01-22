@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { redirect } from "react-router";
 import { toast } from "react-toastify";
 
 const initialState = {
@@ -28,7 +29,10 @@ export const modifyProductAsync = createAsyncThunk(
         toast.success("Product updated!!");
         return res;
       })
-      .catch((err) => toast.error("An error occured!!"));
+      .catch((err) => {
+        redirect("/");
+        toast.error("An error occured!!");
+      });
     return res.data;
   }
 );

@@ -34,11 +34,8 @@ export const removeProductFromCartAsync = createAsyncThunk(
   async (data) => {
     await axios
       .delete(`${path}/${data.id}`)
-      .then((res) => {
-        toast.success("Product remove from cart!!");
-        return res;
-      })
-      .catch((err) => toast.error("An error occured!!"));
+      .catch((err) => toast.error("An error occured with server!!"));
+    toast.success("Product removed from cart!!");
     return data;
   }
 );

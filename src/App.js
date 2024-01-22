@@ -8,6 +8,7 @@ import { Suspense, lazy } from "react";
 import Loader from "./Components/Loader/Loader";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Page404 from "./pages/misc/Page404";
 
 const Products = lazy(() => import("./pages/app/product/Products"));
 const Cart = lazy(() => import("./pages/app/cart/Cart"));
@@ -23,6 +24,7 @@ function App() {
         { path: "add", element: <AddProduct /> },
       ],
     },
+    { path: "*", element: <Page404 /> },
   ]);
 
   return (

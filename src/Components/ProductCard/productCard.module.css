@@ -9,6 +9,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .cardContainer{
     width: 60vw;
+    height: 20vh;
     display: flex;
     justify-content: space-between;
     padding: 1% 0%;
@@ -36,16 +37,17 @@ input[type=number]::-webkit-outer-spin-button {
         .priceRatingWrapper{
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: flex-start;
             text-align: left;
-            padding: 2% 0% 5% 0%;
+            gap: 30%;
 
             .titlePriceWrapper{
-                height: 50%;
+                height: 40%;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
+                justify-content: flex-start;
+                gap: 2%;
 
                 .title{
                     width: 10vw;
@@ -132,6 +134,27 @@ input[type=number]::-webkit-outer-spin-button {
             button:hover{
                 cursor: pointer;
                 scale: 1.1;
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 768px){
+    .cardContainer{
+        height: 9vh;
+        width: 90vw;
+
+        .btnWrapper{
+            display: flex;
+            justify-content: space-between;
+            width: 18vw !important;
+
+            button{
+                height: 2vh;
+                width: 8vw;
+                font-size: 0.8vmax;
+                padding: 0;
             }
         }
     }

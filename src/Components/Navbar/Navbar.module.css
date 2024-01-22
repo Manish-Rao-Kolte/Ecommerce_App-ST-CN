@@ -1,10 +1,7 @@
 
-*{
-    font-family: "poppins", sans-serif;
-}
-
-.navbar{
+.navbarForPC{
     width: 100%;
+    height: 8vh;
     background-color: white;
     display: flex;
     justify-content: space-between;
@@ -51,11 +48,13 @@
             background-color: rgb(236, 95, 48);
             color: white;
             border-radius: 50%;
+            padding: 1% 10%;
         }
 
         .profileContainer{
             width: 70%;
             display: flex;
+            align-items: center;
 
             .profileImg{
                 width: 2.5vmax;
@@ -78,4 +77,134 @@
         color: black;
     }
     
+}
+
+.navbarForSD{
+    display: none;
+}
+
+
+@media only screen and (max-width: 768px){
+    .navbarForPC{
+        display: none;
+    }
+
+    .navbarForSD{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 6vh;
+        box-sizing: border-box;
+        box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+        background-color: white;
+        padding: 2% 0;
+
+        .navLink{
+            text-decoration: none;
+            color: black;
+            display: flex;
+            align-items: center;
+        }
+
+        .navLink:hover{
+            cursor: pointer;
+        }
+
+
+        .logoContainer{
+            width: 40vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 3%;
+            font-size: 2vmax;
+
+            img{
+                width: 3vmax;
+                height: 3vmax;
+                rotate: 8deg;
+            }
+        }
+
+        .cartProfWrapper{
+            margin-right: 3%;
+            width: 60vw;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            .addLink{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 3.2vw;
+                font-size: 1.5vmax;
+            }
+
+            .cartNavLink{
+                width: 10vw;
+                font-size: 1.5vmax;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-right: 8% ;
+
+                .cartCount{
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 1vmax;
+                    width: 1vmax;
+                    background-color: rgb(236, 95, 48);
+                    color: white;
+                    padding: 0.5% ;
+                    border-radius: 50%;
+                    font-size: 0.9vmax;
+                    top: 1.7vh;
+                    right: 15vw;
+                }
+            }
+
+            .profileWrapper{
+
+                .profileNavLink{
+
+                    >img{
+                        width: 3.5vmax;
+                        height: 3.5vmax;
+                    }
+                }
+
+                .profileItems{
+                    visibility: hidden;
+                    position: absolute;
+                    right: 1vw;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    height: 8vh;
+                    width: 15vw;
+                    border: 1px solid black;
+                    background-color: white;
+                    font-size: 1vmax;
+                    /* padding: 2% 0; */
+
+                    .greeting{
+                        font-size: 1.1vmax;
+                    }
+
+                    img{
+                        height: 60%;
+                        width: 70%;
+                    }
+                }
+
+                .profileNavLink:focus  + .profileItems{
+                    visibility: visible;
+                }
+            }
+        }
+    }
 }

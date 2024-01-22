@@ -38,3 +38,9 @@
         }
     }
 }
+
+@media only screen and (max-width: 768px){
+    .formContainer{
+        width: 75vw;
+    }
+}
