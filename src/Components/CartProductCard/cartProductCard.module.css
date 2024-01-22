@@ -58,7 +58,7 @@
         width: 60%;
         display: flex;
         flex-direction: column;
-        align-items: first baseline;
+        /* align-items: first baseline; */
         margin-right: 2%;
 
         .description{
@@ -73,7 +73,7 @@
         .btnWrapper{
             width: 15%;
             display: flex;
-            align-self: flex-start;
+            align-self: center;
             justify-content: space-between;
             align-items: center;
 
