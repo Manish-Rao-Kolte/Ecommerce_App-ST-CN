@@ -29,8 +29,8 @@
         .priceRatingWrapper{
             display: flex;
             flex-direction: column;
-            /* justify-content: space-evenly;
-            align-items: flex-start; */
+            justify-content: space-evenly;
+            align-items: flex-start;
             text-align: left;
             gap: 20%;
 
@@ -43,6 +43,7 @@
 
                 .title{
                     width: 10vw;
+                    height: 5vh;
                     font-size: 1.2vmax;
                     font-weight: bold;
                     overflow: hidden;
@@ -88,7 +89,7 @@
         height: 9vh;
         width: 90vw;
 
-        .firstSection{
+        /* .firstSection{
 
             .priceRatingWrapper{
                 width: 50%;
@@ -102,7 +103,7 @@
                     }
                 }
             }
-        }
+        } */
 
         .btnWrapper{
             display: flex;
