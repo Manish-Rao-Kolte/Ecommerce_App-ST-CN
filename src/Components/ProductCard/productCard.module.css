@@ -8,8 +8,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .cardContainer{
-    width: 90vw;
-    height: 10vh;
+    width: 60vw;
+    height: 20vh;
     display: flex;
     justify-content: space-between;
     padding: 1% 0%;
@@ -140,9 +140,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
-@media only screen and(max-width: 768px){
+@media only screen and (max-width: 768px){
     .cardContainer{
-        height: 5vh !important;
+        height: 10vh !important;
         width: 90vw;
 
         .btnWrapper{
