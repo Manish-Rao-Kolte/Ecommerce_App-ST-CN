@@ -12,8 +12,6 @@
     .firstSection{
         width: 35%;
         display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
         gap: 1%;
         margin-left: 1%;
 
@@ -21,7 +19,6 @@
             width: 50%;
             display: flex;
             justify-content: center;
-            align-items: center;
 
             img{
                 width: 100%;
@@ -32,13 +29,13 @@
         .priceRatingWrapper{
             display: flex;
             flex-direction: column;
-            justify-content: space-evenly;
+            justify-content: flex-start;
             align-items: flex-start;
             text-align: left;
-            gap: 20%;
+            gap: 30%;
 
             .titlePriceWrapper{
-                height: 50%;
+                height: 40%;
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
@@ -49,17 +46,16 @@
                     height: 5vh;
                     font-size: 1.2vmax;
                     font-weight: bold;
-                    overflow: hidden;
+                    overflow-y: visible;
                     white-space: nowrap;
                     text-overflow: ellipsis;
-                    font-size: 5vmax;
                 }
             }
         }
     }
 
     .secondSection{
-        width: 60%;
+        width: 40%;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
