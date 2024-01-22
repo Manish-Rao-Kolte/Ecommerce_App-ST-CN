@@ -3,7 +3,10 @@ import styles from "./productCard.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faStarHalfStroke } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
-import { modifyProduct, removeProduct } from "../../redux/slices/productSlice";
+import {
+  modifyProductAsync,
+  removeProductAsync,
+} from "../../redux/slices/productSlice";
 
 const ProductCard = (props) => {
   const { product } = props;
@@ -18,27 +21,28 @@ const ProductCard = (props) => {
   const dispatch = useDispatch();
 
   const updateProduct = () => {
-    dispatch(
-      modifyProduct({
-        id: product.id,
-        image: product.image,
-        title: data.title,
-        price: data.price,
-        description: data.description,
-        rating: data.rating,
-      })
-    );
+    const newData = {
+      id: product.id,
+      image: product.image,
+      title: data.title,
+      price: data.price,
+      description: data.description,
+      rating: data.rating,
+    };
+    dispatch(modifyProductAsync(newData));
     setIsUpdateRequired(false);
   };
 
   const deleteProduct = () => {
-    dispatch(removeProduct(product));
+    dispatch(removeProductAsync(product));
   };
 
   return (
     <div className={styles.cardContainer}>
       <div className={styles.firstSection}>
-        <img src={image} alt={title} />
+        <div className={styles.imgContainer}>
+          <img src={image} alt={title} />
+        </div>
         <div className={styles.priceRatingWrapper}>
           <div className={styles.titlePriceWrapper}>
             {isUpdateRequired ? (
@@ -83,6 +87,8 @@ const ProductCard = (props) => {
                   className={styles.ratingInput}
                   defaultValue={rating}
                   required
+                  min="1"
+                  max="5"
                   onChange={(e) =>
                     setData({
                       ...data,
@@ -93,13 +99,15 @@ const ProductCard = (props) => {
               </>
             ) : (
               <div className={styles.rating}>
-                {[...Array(Math.floor(rating))].map((star) => {
-                  return <FontAwesomeIcon icon={faStar} />;
+                {[...Array(Math.floor(rating))].map((star, index) => {
+                  return <FontAwesomeIcon icon={faStar} key={index} />;
                 })}
                 {Math.ceil(rating) - rating < 1 &&
                   Math.ceil(rating) - rating > 0 &&
-                  [...Array(1)].map((star) => {
-                    return <FontAwesomeIcon icon={faStarHalfStroke} />;
+                  [...Array(1)].map((star, index) => {
+                    return (
+                      <FontAwesomeIcon icon={faStarHalfStroke} key={index} />
+                    );
                   })}
               </div>
             )}
@@ -137,6 +145,7 @@ const ProductCard = (props) => {
             </>
           ) : (
             <>
+              <button>Add to Cart</button>
               <img
                 src="https://cdn-icons-png.flaticon.com/128/11149/11149783.png"
                 alt="edit"

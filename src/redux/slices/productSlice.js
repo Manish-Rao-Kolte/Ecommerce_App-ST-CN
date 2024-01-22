@@ -5,29 +5,55 @@ const initialState = {
   products: [],
 };
 
+const path = process.env.REACT_APP_PRODUCTS_URL;
+
 export const getProductsAsync = createAsyncThunk(
   "products/getProductsAsync",
-  async (path) => {
+  async () => {
     const res = await axios.get(path);
     return res.data;
+  }
+);
+
+export const modifyProductAsync = createAsyncThunk(
+  "products/modifyProductAsync",
+  async (newData) => {
+    const res = await axios.put(`${path}/${newData.id}`, newData);
+    return res.data;
+  }
+);
+
+export const addProductAsync = createAsyncThunk(
+  "products/addProductAsync",
+  async (newData) => {
+    const res = await axios.post(path, newData);
+    return res.data;
+  }
+);
+
+export const removeProductAsync = createAsyncThunk(
+  "products/removeProductAsync",
+  async (data) => {
+    await axios.delete(`${path}/${data.id}`);
+    return data;
   }
 );
 
 const productSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {
-    addProduct: (state, action) => {
-      if (action.payload.rating <= 5) {
-        const newProduct = { ...action.payload, id: 16 };
-        state.products = [newProduct, ...state.products];
-      }
-    },
-    modifyProduct: (state, action) => {
-      if (action.payload.rating <= 5) {
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(getProductsAsync.fulfilled, (state, action) => {
+        state.products = [...action.payload];
+      })
+      .addCase(addProductAsync.fulfilled, (state, action) => {
+        state.products = [action.payload, ...state.products];
+      })
+      .addCase(modifyProductAsync.fulfilled, (state, action) => {
         const data = state.products.map((product) => {
           if (product.id === action.payload.id) {
-            console.log(action.payload);
             product = {
               ...action.payload,
             };
@@ -35,23 +61,18 @@ const productSlice = createSlice({
           return product;
         });
         state.products = [...data];
-      }
-    },
-    removeProduct: (state, action) => {
-      state.products = [
-        ...state.products.filter((product) => product.id !== action.payload.id),
-      ];
-    },
-  },
-  extraReducers: (builder) => {
-    builder.addCase(getProductsAsync.fulfilled, (state, action) => {
-      state.products = [...action.payload];
-    });
+      })
+      .addCase(removeProductAsync.fulfilled, (state, action) => {
+        state.products = [
+          ...state.products.filter(
+            (product) => product.id !== action.payload.id
+          ),
+        ];
+      });
   },
 });
 
 export const productReducer = productSlice.reducer;
-export const { modifyProduct, removeProduct, addProduct } =
-  productSlice.actions;
+export const actions = productSlice.actions;
 
 export const productSelector = (state) => state.productReducer;

@@ -11,17 +11,17 @@ import ProductCard from "../../../Components/ProductCard/ProductCard";
 const Products = () => {
   const dispatch = useDispatch();
   const { products } = useSelector(productSelector);
-  const path = process.env.REACT_APP_DB_URL;
 
   useLayoutEffect(() => {
-    dispatch(getProductsAsync(path));
-    console.log(products);
+    products.length === 0 && dispatch(getProductsAsync());
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className={styles.productsContainer}>
       {products.map((product) => {
-        return <ProductCard product={product} id={product.id} />;
+        return (
+          <ProductCard product={product} id={product.id} key={product.id} />
+        );
       })}
     </div>
   );

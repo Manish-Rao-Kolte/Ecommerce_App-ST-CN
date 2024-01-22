@@ -1,10 +1,14 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./addProduct.module.css";
 
 import React, { useState } from "react";
-import { addProduct } from "../../../redux/slices/productSlice";
+import {
+  addProductAsync,
+  productSelector,
+} from "../../../redux/slices/productSlice";
 
 const AddProduct = () => {
+  const { products } = useSelector(productSelector);
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -16,10 +20,7 @@ const AddProduct = () => {
 
   const handleAddProduct = (e) => {
     e.preventDefault();
-    if (formData.rating < 0 || formData.rating > 5) {
-      return;
-    }
-    dispatch(addProduct(formData));
+    dispatch(addProductAsync({ ...formData, id: products.length + 1 }));
     setFormData({
       title: "",
       description: "",
@@ -58,7 +59,7 @@ const AddProduct = () => {
         />
         <label htmlFor="price">Price</label>
         <input
-          type="text"
+          type="number"
           name="price"
           id="price"
           required
@@ -67,12 +68,15 @@ const AddProduct = () => {
         />
         <label htmlFor="rating">Rating</label>
         <input
-          type="text"
+          type="number"
           name="rating"
           id="rating"
           required
           onChange={(e) => setFormData({ ...formData, rating: e.target.value })}
           value={formData.rating}
+          max="5"
+          min="1"
+          step="0.1"
         />
         <label htmlFor="image">Image</label>
         <input
