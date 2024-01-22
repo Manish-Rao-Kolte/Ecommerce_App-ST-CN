@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import styles from "./Navbar.module.css";
 import { NavLink, Outlet } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { cartSelector } from "../../redux/slices/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { cartSelector, getCartAsync } from "../../redux/slices/cartSlice";
 
 const Navbar = () => {
   const { cart } = useSelector(cartSelector);
+  const dispatch = useDispatch();
+
+  useLayoutEffect(() => {
+    dispatch(getCartAsync());
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>
       <div className={styles.navbar}>
         <div className={styles.navlinkContainer}>
-          <NavLink className={styles.navlink}>
+          <NavLink className={styles.navlink} to="/">
             <div className={styles.imgContainer}>
               <img
                 className={styles.logoImg}

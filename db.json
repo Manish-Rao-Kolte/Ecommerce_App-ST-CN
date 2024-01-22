@@ -22,7 +22,7 @@
         "image": "https://media.istockphoto.com/id/509287090/photo/seat.jpg?s=612x612&w=0&k=20&c=ORjvoFeS6sej6fEnzHHmAzpMmdGdAxPFKKwpiqm0bvs=",
         "description":"This is a well designed and crafted product that will suit many needs, in terms of quality, craftsmanship and aesthetics.",
         "rating": 3,
-        "price": 100.00
+        "price": 300.00
       },
       {
         "id": 4,
@@ -38,7 +38,7 @@
         "image": "https://media.istockphoto.com/id/509287090/photo/seat.jpg?s=612x612&w=0&k=20&c=ORjvoFeS6sej6fEnzHHmAzpMmdGdAxPFKKwpiqm0bvs=",
         "description":"This is a well designed and crafted product that will suit many needs, in terms of quality, craftsmanship and aesthetics.",
         "rating": 3,
-        "price": 100.00
+        "price": 1000.00
       },
       {
         "id": 6,
@@ -62,7 +62,7 @@
         "image": "https://media.istockphoto.com/id/509287090/photo/seat.jpg?s=612x612&w=0&k=20&c=ORjvoFeS6sej6fEnzHHmAzpMmdGdAxPFKKwpiqm0bvs=",
         "description":"This is a well designed and crafted product that will suit many needs, in terms of quality, craftsmanship and aesthetics.",
         "rating": 3,
-        "price": 100.00
+        "price": 10.00
       },
       {
         "id": 9,
@@ -70,7 +70,7 @@
         "image": "https://media.istockphoto.com/id/509287090/photo/seat.jpg?s=612x612&w=0&k=20&c=ORjvoFeS6sej6fEnzHHmAzpMmdGdAxPFKKwpiqm0bvs=",
         "description":"This is a well designed and crafted product that will suit many needs, in terms of quality, craftsmanship and aesthetics.",
         "rating": 3,
-        "price": 100.00
+        "price": 200.00
       },
       {
         "id": 10,
@@ -78,7 +78,7 @@
         "image": "https://media.istockphoto.com/id/509287090/photo/seat.jpg?s=612x612&w=0&k=20&c=ORjvoFeS6sej6fEnzHHmAzpMmdGdAxPFKKwpiqm0bvs=",
         "description":"This is a well designed and crafted product that will suit many needs, in terms of quality, craftsmanship and aesthetics.",
         "rating": 3,
-        "price": 100.00
+        "price": 180.00
       },
       {
         "id": 11,
@@ -102,7 +102,7 @@
         "image": "https://media.istockphoto.com/id/509287090/photo/seat.jpg?s=612x612&w=0&k=20&c=ORjvoFeS6sej6fEnzHHmAzpMmdGdAxPFKKwpiqm0bvs=",
         "description":"This is a well designed and crafted product that will suit many needs, in terms of quality, craftsmanship and aesthetics.",
         "rating": 3,
-        "price": 100.00
+        "price": 150.00
       },
       {
         "id": 14,
@@ -127,6 +127,6 @@
       "image": "https://media.istockphoto.com/id/509287090/photo/seat.jpg?s=612x612&w=0&k=20&c=ORjvoFeS6sej6fEnzHHmAzpMmdGdAxPFKKwpiqm0bvs=",
       "description":"This is a well designed and crafted product that will suit many needs, in terms of quality, craftsmanship and aesthetics.",
       "rating": 3,
-      "price": 100.00}
+      "price": 90.00}
     ]
 }

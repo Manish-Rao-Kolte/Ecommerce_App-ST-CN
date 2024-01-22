@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faStarHalfStroke } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 import { removeProductFromCartAsync } from "../../redux/slices/cartSlice";
+import { toast } from "react-toastify";
 
 const CartProductCard = (props) => {
   const { product } = props;
@@ -11,7 +12,11 @@ const CartProductCard = (props) => {
   const dispatch = useDispatch();
 
   const deleteProductFromCart = () => {
-    dispatch(removeProductFromCartAsync(product));
+    dispatch(removeProductFromCartAsync(product))
+      .then(() => {
+        toast.success("Product removed!!");
+      })
+      .catch((err) => toast.error("Error occured!!"));
   };
 
   return (

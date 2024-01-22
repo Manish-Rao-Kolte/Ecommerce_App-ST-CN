@@ -1,11 +1,16 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
-import Products from "./pages/app/product/Products";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
 import AddProduct from "./pages/app/addProduct/AddProduct";
-import Cart from "./pages/app/cart/Cart";
+import { Suspense, lazy } from "react";
+import Loader from "./Components/Loader/Loader";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const Products = lazy(() => import("./pages/app/product/Products"));
+const Cart = lazy(() => import("./pages/app/cart/Cart"));
 
 function App() {
   const router = createBrowserRouter([
@@ -22,9 +27,12 @@ function App() {
 
   return (
     <div className="App">
-      <Provider store={store}>
-        <RouterProvider router={router} />
-      </Provider>
+      <Suspense fallback={<Loader />}>
+        <Provider store={store}>
+          <RouterProvider router={router} />
+        </Provider>
+      </Suspense>
+      <ToastContainer limit={3} autoClose={700} />
     </div>
   );
 }

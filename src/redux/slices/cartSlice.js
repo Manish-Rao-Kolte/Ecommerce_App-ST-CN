@@ -7,6 +7,11 @@ const initialState = {
 
 const path = process.env.REACT_APP_CART_URL;
 
+export const getCartAsync = createAsyncThunk("cart/getCartAsync", async () => {
+  const res = await axios.get(path);
+  return res.data;
+});
+
 export const addProductToCartAsync = createAsyncThunk(
   "cart/addProductToCartAsync",
   async (data) => {
@@ -29,6 +34,9 @@ const cartSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(getCartAsync.fulfilled, (state, action) => {
+        state.cart = [...action.payload];
+      })
       .addCase(addProductToCartAsync.fulfilled, (state, action) => {
         state.cart = [action.payload, ...state.cart];
       })

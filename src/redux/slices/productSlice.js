@@ -3,6 +3,7 @@ import axios from "axios";
 
 const initialState = {
   products: [],
+  sortList: [],
 };
 
 const path = process.env.REACT_APP_PRODUCTS_URL;
@@ -42,7 +43,12 @@ export const removeProductAsync = createAsyncThunk(
 const productSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {},
+  reducers: {
+    sortProducts: (state, action) => {
+      const data = [...state.products];
+      state.sortList = [...data.sort((a, b) => a.price - b.price)];
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getProductsAsync.fulfilled, (state, action) => {
@@ -73,6 +79,6 @@ const productSlice = createSlice({
 });
 
 export const productReducer = productSlice.reducer;
-export const actions = productSlice.actions;
+export const { sortProducts } = productSlice.actions;
 
 export const productSelector = (state) => state.productReducer;

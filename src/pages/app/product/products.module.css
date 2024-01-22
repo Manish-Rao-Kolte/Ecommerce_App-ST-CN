@@ -1,11 +1,52 @@
 
 .productsContainer{
-    /* height: 82vh; */
+    height: 76vh;
     margin: auto;
-    margin-top: 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1.5vmax;
+    overflow: scroll;
+    overflow-x: hidden;
+}
 
+.sortWrapper{
+    margin: 2% auto;
+    width: 9vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+    margin-right: 12vw;
+    border-radius: 15px;
+    background-color: white;
+    gap: 1%;
+    padding: 0.5% 0%;
+
+    button{
+        font-size: 0.95vmax;
+        border: none;
+        background-color: white;
+        border-radius: 15px;
+    }
+
+    img{
+        height: 1.1vmax;
+        width: 1.1vmax;
+    }
+
+    button:hover, img:hover{
+        scale: 1.05;
+        cursor: pointer;
+    }
+
+}
+
+.spinnerContainer{
+    margin: auto;
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35vh;
 }

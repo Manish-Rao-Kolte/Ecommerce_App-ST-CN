@@ -8,6 +8,7 @@ import {
   removeProductAsync,
 } from "../../redux/slices/productSlice";
 import { addProductToCartAsync } from "../../redux/slices/cartSlice";
+import { toast } from "react-toastify";
 
 const ProductCard = (props) => {
   const { product } = props;
@@ -30,16 +31,28 @@ const ProductCard = (props) => {
       description: data.description,
       rating: data.rating,
     };
-    dispatch(modifyProductAsync(newData));
+    dispatch(modifyProductAsync(newData))
+      .then(() => {
+        toast.success("Product details updated!!");
+      })
+      .catch((err) => toast.error("Error occured!!"));
     setIsUpdateRequired(false);
   };
 
   const deleteProduct = () => {
-    dispatch(removeProductAsync(product));
+    dispatch(removeProductAsync(product))
+      .then(() => {
+        toast.success("Product Removed!!");
+      })
+      .catch((err) => toast.error("Error occured!!"));
   };
 
   const addToCart = () => {
-    dispatch(addProductToCartAsync(product));
+    dispatch(addProductToCartAsync(product))
+      .then(() => {
+        toast.success("Product Added to Cart!!");
+      })
+      .catch((err) => toast.error("Error occured!!"));
   };
 
   return (
