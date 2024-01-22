@@ -52,6 +52,7 @@
                     overflow: hidden;
                     white-space: nowrap;
                     text-overflow: ellipsis;
+                    font-size: 5vmax;
                 }
             }
         }
@@ -88,7 +89,7 @@
     }
 }
 
-/* @media only screen and (max-width: 768px){
+@media only screen and (max-width: 768px){
     .cardContainer{
         height: 9vh;
         width: 90vw;
@@ -106,4 +107,4 @@
             }
         }
     }
-} */
+}
