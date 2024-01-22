@@ -11,7 +11,7 @@
 
     .firstSection{
         width: 35%;
-        display: flex;
+        display: inline-flex;
         gap: 1%;
         margin-left: 1%;
 
