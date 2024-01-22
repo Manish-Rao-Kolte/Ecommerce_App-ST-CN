@@ -29,7 +29,7 @@
         .priceRatingWrapper{
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
             align-items: self-start;
             text-align: left;
             
