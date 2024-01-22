@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const initialState = {
   cart: [],
@@ -8,14 +9,22 @@ const initialState = {
 const path = process.env.REACT_APP_CART_URL;
 
 export const getCartAsync = createAsyncThunk("cart/getCartAsync", async () => {
-  const res = await axios.get(path);
+  const res = await axios
+    .get(path)
+    .catch((err) => toast.error("An error occured!!"));
   return res.data;
 });
 
 export const addProductToCartAsync = createAsyncThunk(
   "cart/addProductToCartAsync",
   async (data) => {
-    const res = await axios.post(`${path}`, data);
+    const res = await axios
+      .post(`${path}`, data)
+      .then((res) => {
+        toast.success("Product added to cart!!");
+        return res;
+      })
+      .catch((err) => toast.error("An error occured!!"));
     return res.data;
   }
 );
@@ -23,7 +32,13 @@ export const addProductToCartAsync = createAsyncThunk(
 export const removeProductFromCartAsync = createAsyncThunk(
   "cart/removeProductFromCartAsync",
   async (data) => {
-    await axios.delete(`${path}/${data.id}`);
+    await axios
+      .delete(`${path}/${data.id}`)
+      .then((res) => {
+        toast.success("Product remove from cart!!");
+        return res;
+      })
+      .catch((err) => toast.error("An error occured!!"));
     return data;
   }
 );

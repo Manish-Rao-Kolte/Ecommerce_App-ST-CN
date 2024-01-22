@@ -9,7 +9,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   useLayoutEffect(() => {
-    dispatch(getCartAsync());
+    cart.length === 0 && dispatch(getCartAsync());
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (

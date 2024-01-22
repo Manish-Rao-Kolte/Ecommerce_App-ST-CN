@@ -1,9 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const initialState = {
   products: [],
-  sortList: [],
+  sortedList: [],
 };
 
 const path = process.env.REACT_APP_PRODUCTS_URL;
@@ -11,7 +12,9 @@ const path = process.env.REACT_APP_PRODUCTS_URL;
 export const getProductsAsync = createAsyncThunk(
   "products/getProductsAsync",
   async () => {
-    const res = await axios.get(path);
+    const res = await axios
+      .get(path)
+      .catch((err) => toast.error("An error occured!!"));
     return res.data;
   }
 );
@@ -19,7 +22,13 @@ export const getProductsAsync = createAsyncThunk(
 export const modifyProductAsync = createAsyncThunk(
   "products/modifyProductAsync",
   async (newData) => {
-    const res = await axios.put(`${path}/${newData.id}`, newData);
+    const res = await axios
+      .put(`${path}/${newData.id}`, newData)
+      .then((res) => {
+        toast.success("Product updated!!");
+        return res;
+      })
+      .catch((err) => toast.error("An error occured!!"));
     return res.data;
   }
 );
@@ -27,7 +36,13 @@ export const modifyProductAsync = createAsyncThunk(
 export const addProductAsync = createAsyncThunk(
   "products/addProductAsync",
   async (newData) => {
-    const res = await axios.post(path, newData);
+    const res = await axios
+      .post(path, newData)
+      .then((res) => {
+        toast.success("Product added to list!!");
+        return res;
+      })
+      .catch((err) => toast.error("An error occured!!"));
     return res.data;
   }
 );
@@ -35,7 +50,13 @@ export const addProductAsync = createAsyncThunk(
 export const removeProductAsync = createAsyncThunk(
   "products/removeProductAsync",
   async (data) => {
-    await axios.delete(`${path}/${data.id}`);
+    await axios
+      .delete(`${path}/${data.id}`)
+      .then((res) => {
+        toast.success("Product removed from list!!");
+        return res;
+      })
+      .catch((err) => toast.error("An error occured!!"));
     return data;
   }
 );
@@ -46,7 +67,10 @@ const productSlice = createSlice({
   reducers: {
     sortProducts: (state, action) => {
       const data = [...state.products];
-      state.sortList = [...data.sort((a, b) => a.price - b.price)];
+      state.sortedList = [...data.sort((a, b) => a.price - b.price)];
+    },
+    removeSort: (state, action) => {
+      state.sortedList = [];
     },
   },
   extraReducers: (builder) => {
@@ -79,6 +103,6 @@ const productSlice = createSlice({
 });
 
 export const productReducer = productSlice.reducer;
-export const { sortProducts } = productSlice.actions;
+export const { sortProducts, removeSort } = productSlice.actions;
 
 export const productSelector = (state) => state.productReducer;
