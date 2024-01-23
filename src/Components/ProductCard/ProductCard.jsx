@@ -10,8 +10,10 @@ import {
 import { addProductToCartAsync } from "../../redux/slices/cartSlice";
 
 const ProductCard = (props) => {
+  //destructuring data from props.
   const { product } = props;
   const { title, image, rating, price, description } = product;
+  // local state to store data.
   const [data, setData] = useState({
     title: title,
     price: price,
@@ -21,6 +23,7 @@ const ProductCard = (props) => {
   const [isUpdateRequired, setIsUpdateRequired] = useState(false);
   const dispatch = useDispatch();
 
+  // function is to handle data updation of a product.
   const updateProduct = () => {
     const newData = {
       id: product.id,
@@ -34,10 +37,12 @@ const ProductCard = (props) => {
     setIsUpdateRequired(false);
   };
 
+  //function to delete product from list.
   const deleteProduct = () => {
     dispatch(removeProductAsync(product));
   };
 
+  // function to add a product to cart.
   const addToCart = () => {
     dispatch(addProductToCartAsync(product));
   };

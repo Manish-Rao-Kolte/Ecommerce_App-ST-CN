@@ -6,8 +6,10 @@ const initialState = {
   cart: [],
 };
 
+// URL or API for cart items.
 const path = process.env.REACT_APP_CART_URL;
 
+// async function to get data from DB and store in local variable.
 export const getCartAsync = createAsyncThunk("cart/getCartAsync", async () => {
   const res = await axios
     .get(path)
@@ -15,6 +17,7 @@ export const getCartAsync = createAsyncThunk("cart/getCartAsync", async () => {
   return res.data;
 });
 
+//async function to add product to cart in DB and local variable.
 export const addProductToCartAsync = createAsyncThunk(
   "cart/addProductToCartAsync",
   async (data) => {
@@ -29,6 +32,7 @@ export const addProductToCartAsync = createAsyncThunk(
   }
 );
 
+//async function to remove product from cart.
 export const removeProductFromCartAsync = createAsyncThunk(
   "cart/removeProductFromCartAsync",
   async (data) => {

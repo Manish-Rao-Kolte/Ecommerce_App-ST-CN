@@ -18,6 +18,7 @@ const AddProduct = () => {
   });
   const dispatch = useDispatch();
 
+  //function to add new product in DB.
   const handleAddProduct = (e) => {
     e.preventDefault();
     dispatch(addProductAsync({ ...formData, id: products.length + 1 }));

@@ -14,16 +14,19 @@ const Products = () => {
   const { products, sortedList } = useSelector(productSelector);
   const [sortClicked, setSortClicked] = useState(false);
 
+  // function to sort list data on product page.
   const handleSort = () => {
     setSortClicked(true);
     dispatch(sortProducts());
   };
 
+  //functionn to remove sort.
   const handleRemoveSort = () => {
     dispatch(removeSort());
     setSortClicked(false);
   };
 
+  // layoutEffect is used to fetch products list from API.
   useLayoutEffect(() => {
     products.length === 0 && dispatch(getProductsAsync());
   }, []); // eslint-disable-line react-hooks/exhaustive-deps

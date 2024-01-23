@@ -10,6 +10,7 @@ const CartProductCard = (props) => {
   const { title, image, rating, price, description } = product;
   const dispatch = useDispatch();
 
+  // function to handle removing product from card. It's dispatching the action to reducer function in redux.
   const deleteProductFromCart = () => {
     dispatch(removeProductFromCartAsync(product));
   };

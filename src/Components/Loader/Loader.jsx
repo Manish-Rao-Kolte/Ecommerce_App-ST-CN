@@ -2,6 +2,8 @@ import styles from "./loader.module.css";
 import React from "react";
 import { ThreeCircles } from "react-loader-spinner";
 
+//three circle animation is ijmported to show when data is loading.
+
 const Loader = () => {
   return (
     <div className={styles.spinnerContainer}>

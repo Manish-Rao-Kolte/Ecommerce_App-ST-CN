@@ -7,8 +7,10 @@ const initialState = {
   sortedList: [],
 };
 
+// API for product list data.
 const path = process.env.REACT_APP_PRODUCTS_URL;
 
+// function to get data from server and store in DB.
 export const getProductsAsync = createAsyncThunk(
   "products/getProductsAsync",
   async () => {
@@ -19,6 +21,7 @@ export const getProductsAsync = createAsyncThunk(
   }
 );
 
+// function to update product.
 export const modifyProductAsync = createAsyncThunk(
   "products/modifyProductAsync",
   async (newData) => {
@@ -39,6 +42,7 @@ export const modifyProductAsync = createAsyncThunk(
   }
 );
 
+//function to add new product in server and DB..
 export const addProductAsync = createAsyncThunk(
   "products/addProductAsync",
   async (newData) => {
@@ -53,6 +57,7 @@ export const addProductAsync = createAsyncThunk(
   }
 );
 
+//removing product from server and DB.
 export const removeProductAsync = createAsyncThunk(
   "products/removeProductAsync",
   async (data) => {
@@ -67,6 +72,7 @@ export const removeProductAsync = createAsyncThunk(
   }
 );
 
+//Creating Slice.
 const productSlice = createSlice({
   name: "products",
   initialState,

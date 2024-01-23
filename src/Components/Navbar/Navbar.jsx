@@ -5,9 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { cartSelector, getCartAsync } from "../../redux/slices/cartSlice";
 
 const Navbar = () => {
+  // destructuring cart data from selector.
   const { cart } = useSelector(cartSelector);
   const dispatch = useDispatch();
 
+  // layoutEffect is used to get cart item count and cart data when Component mounts.
   useLayoutEffect(() => {
     cart.length === 0 && dispatch(getCartAsync());
   }, []); // eslint-disable-line react-hooks/exhaustive-deps

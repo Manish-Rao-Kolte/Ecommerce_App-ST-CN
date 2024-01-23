@@ -6,6 +6,7 @@ import CartProductCard from "../../../Components/CartProductCard/CartProductCard
 
 const Cart = () => {
   const { cart } = useSelector(cartSelector);
+  // showing alternative UI when cart is empty.
   if (cart?.length === 0) {
     return <div>No items in cart..</div>;
   }
