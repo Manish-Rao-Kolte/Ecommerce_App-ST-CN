@@ -53,7 +53,11 @@ export const addProductAsync = createAsyncThunk(
         return res;
       })
       .catch((err) => toast.error("An error occured with server!!"));
-    return res.data;
+    if (res?.data?.id) {
+      return res.data;
+    } else {
+      return newData;
+    }
   }
 );
 
@@ -114,6 +118,7 @@ const productSlice = createSlice({
   },
 });
 
+//different exports.
 export const productReducer = productSlice.reducer;
 export const { sortProducts, removeSort } = productSlice.actions;
 
