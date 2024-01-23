@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { redirect } from "react-router";
 import { toast } from "react-toastify";
 
 const initialState = {
@@ -26,14 +25,17 @@ export const modifyProductAsync = createAsyncThunk(
     const res = await axios
       .put(`${path}/${newData.id}`, newData)
       .then((res) => {
-        toast.success("Product updated!!");
         return res;
       })
       .catch((err) => {
-        redirect("/");
-        toast.error("An error occured!!");
+        toast.error("An error occured with server!!");
       });
-    return res.data;
+    toast.success("Product updated!!");
+    if (res?.data?.id) {
+      return res.data;
+    } else {
+      return newData;
+    }
   }
 );
 
@@ -46,7 +48,7 @@ export const addProductAsync = createAsyncThunk(
         toast.success("Product added to list!!");
         return res;
       })
-      .catch((err) => toast.error("An error occured!!"));
+      .catch((err) => toast.error("An error occured with server!!"));
     return res.data;
   }
 );
@@ -57,10 +59,10 @@ export const removeProductAsync = createAsyncThunk(
     await axios
       .delete(`${path}/${data.id}`)
       .then((res) => {
-        toast.success("Product removed from list!!");
         return res;
       })
-      .catch((err) => toast.error("An error occured!!"));
+      .catch((err) => toast.error("An error occured with server!!"));
+    toast.success("Product removed from list!!");
     return data;
   }
 );
