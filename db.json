@@ -122,11 +122,5 @@
       }
     ],
     "cart": [
-      {"id": 1,
-      "title": "Red seat",
-      "image": "https://media.istockphoto.com/id/509287090/photo/seat.jpg?s=612x612&w=0&k=20&c=ORjvoFeS6sej6fEnzHHmAzpMmdGdAxPFKKwpiqm0bvs=",
-      "description":"This is a well designed and crafted product that will suit many needs, in terms of quality, craftsmanship and aesthetics.",
-      "rating": 3,
-      "price": 90.00}
     ]
 }

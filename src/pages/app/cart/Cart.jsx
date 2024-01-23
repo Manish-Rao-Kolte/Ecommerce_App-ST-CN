@@ -6,7 +6,9 @@ import CartProductCard from "../../../Components/CartProductCard/CartProductCard
 
 const Cart = () => {
   const { cart } = useSelector(cartSelector);
-
+  if (cart?.length === 0) {
+    return <div>No items in cart..</div>;
+  }
   return (
     <div className={styles.cartContainer}>
       {cart?.map((product) => {
